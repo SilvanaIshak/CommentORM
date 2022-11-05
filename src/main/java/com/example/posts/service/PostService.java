@@ -1,5 +1,6 @@
 package com.example.posts.service;
 
+import com.example.posts.domain.Comment;
 import com.example.posts.domain.Post;
 
 import java.util.List;
@@ -12,4 +13,8 @@ public interface PostService {
     void save(Post p);
 
     Post findById(long id);
+
+    List<Post> findPostByTitle(String title);
+
+
 }

@@ -42,9 +42,9 @@ public class UserController {
         return userService.findById(id);
     }
 
-//    @GetMapping("/num")
-//    public List<User> UserManyPosts(){
-//        return userService.UserManyPosts();
-//    }
+    @GetMapping("/count/{count}")
+    public List<User> UserPostsCount(@PathVariable int count){
+        return userService.UserPostsCount(count);
+    }
 
 }

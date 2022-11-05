@@ -18,5 +18,4 @@ public class Comment {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     long id;
     String name;
-
 }

@@ -1,5 +1,6 @@
 package com.example.posts.service.impl;
 
+import com.example.posts.domain.Comment;
 import com.example.posts.domain.Post;
 import com.example.posts.repo.PostRepo;
 import com.example.posts.service.PostService;
@@ -50,5 +51,11 @@ public class PostServiceImpl implements PostService {
     public Post findById(long id) {
        return postRepo.findById(id).orElse(null);
     }
+
+    @Override
+    public List<Post> findPostByTitle(String title) {
+        return postRepo.findPostByTitle(title);
+    }
+
 
 }
