@@ -17,21 +17,6 @@ public class PostServiceImpl implements PostService {
     @Autowired
    private final PostRepo postRepo;
 
-//    @Autowired
-//    ListMapper<Post,PostDto> listMapperpostToDto;
-//
-//    @Autowired
-//    ListMapper<PostV2,PostV2Dto> listMapperpostToDtoV2;
-
-    // TODO map through stream
-//    @Override
-//    public List<PostDto> findAll() {
-//        //return postRepo.findAll();
-//
-////        return (List<PostDto>) listMapperpostToDto.mapList(postRepo.findAll(), new PostDto());
-//    }
-
-
     @Override
     public List<Post> findAll() {
         return postRepo.findAll();
@@ -55,6 +40,13 @@ public class PostServiceImpl implements PostService {
     @Override
     public List<Post> findPostByTitle(String title) {
         return postRepo.findPostByTitle(title);
+    }
+
+    @Override
+    public void addComment(long id, Comment comment) {
+        Post post = postRepo.findById(id).orElse(null);
+        post.getComments().add(comment);
+        postRepo.save(post);
     }
 
 

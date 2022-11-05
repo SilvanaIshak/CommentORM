@@ -16,5 +16,6 @@ public interface PostService {
 
     List<Post> findPostByTitle(String title);
 
+    void addComment(long id, Comment comment);
 
 }

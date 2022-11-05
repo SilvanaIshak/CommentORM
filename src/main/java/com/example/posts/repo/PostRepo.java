@@ -1,6 +1,6 @@
 package com.example.posts.repo;
 
-import com.example.posts.domain.Comment;
+
 import com.example.posts.domain.Post;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;

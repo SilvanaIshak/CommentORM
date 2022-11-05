@@ -1,5 +1,6 @@
 package com.example.posts.service;
 
+import com.example.posts.domain.Comment;
 import com.example.posts.domain.Post;
 import com.example.posts.domain.User;
 
@@ -9,6 +10,8 @@ public interface UserService {
 
     List<User> findAll();
 
+    void deleteById(long id);
+
     void save(User user);
 
     List<Post> findPost(long id);
@@ -16,4 +19,5 @@ public interface UserService {
     User findById(long id);
 
     List<User> UserPostsCount(int count);
+    void addPost(long id, Post post);
 }

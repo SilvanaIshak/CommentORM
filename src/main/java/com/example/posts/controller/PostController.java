@@ -2,11 +2,8 @@ package com.example.posts.controller;
 
 import com.example.posts.domain.Comment;
 import com.example.posts.domain.Post;
-import com.example.posts.repo.PostRepo;
-import com.example.posts.service.CommentService;
 import com.example.posts.service.PostService;
 import lombok.RequiredArgsConstructor;
-import net.bytebuddy.build.Plugin;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -20,8 +17,7 @@ public class PostController {
 
     @Autowired
     PostService postService;
-
-
+    
     @GetMapping
     public List<Post> getAllPosts(){
         return postService.findAll();
@@ -46,6 +42,11 @@ public class PostController {
     @GetMapping("/title/{title}")
     public List<Post> findPostByTitle(@PathVariable("title") String title){
         return postService.findPostByTitle(title);
+    }
+
+    @PostMapping("/{id}/comments")
+    public void addComment(@PathVariable("id") long id, @RequestBody Comment comment) {
+        postService.addComment(id, comment);
     }
 
 }

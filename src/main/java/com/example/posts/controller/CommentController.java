@@ -2,8 +2,6 @@ package com.example.posts.controller;
 
 
 import com.example.posts.domain.Comment;
-import com.example.posts.domain.User;
-import com.example.posts.repo.CommentRepo;
 import com.example.posts.service.CommentService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;

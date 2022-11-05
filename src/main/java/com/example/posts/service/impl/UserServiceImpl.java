@@ -21,6 +21,11 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public void deleteById(long id) {
+        userRepo.deleteById(id);
+    }
+
+    @Override
     public void save(User user) {
         userRepo.save(user);
     }
@@ -38,6 +43,13 @@ public class UserServiceImpl implements UserService {
     @Override
     public List<User> UserPostsCount(int count) {
         return userRepo.UserPostsCount(count);
+    }
+
+    @Override
+    public void addPost(long id, Post post) {
+        User user = userRepo.findById(id).orElse(null);
+        user.getPosts().add(post);
+        userRepo.save(user);
     }
 
 }

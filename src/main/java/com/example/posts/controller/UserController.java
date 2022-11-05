@@ -47,4 +47,13 @@ public class UserController {
         return userService.UserPostsCount(count);
     }
 
+    @DeleteMapping("/{id}")
+    public void deleteById(@PathVariable long id){
+        userService.deleteById(id);
+    }
+
+    @PostMapping("/{id}")
+    public void addPost(@PathVariable long id, @RequestBody Post post){
+        userService.addPost(id, post);
+    }
 }
